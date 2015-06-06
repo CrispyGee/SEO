@@ -1,0 +1,72 @@
+\chapter{Sitemap}
+
+Sitemap
+
+3.1. Defintion
+Eine Sitemap ist eine Liste aller URLs einer Webseite. Es ist also eine Übersicht aller verfügbarer Inhalte der Webseite und fungiert ebenfalls als strukturelle Grundlage, um den Aufbau der Webseite besser zu verstehen. 
+Man kann Suchmaschinen eine Sitemap der Webseite zur Verfügung stellen. 
+Eine HTML(Hypertext Markup Language)-Sitemap sind speziell für den User gedacht und ist ein grafisch übersichtliches Inhaltsverzeichnis der Webseite. Sie trägt zur Usability der Webseite bei.
+Eine XML(Extensible Markup Language)-Sitemap ist ein strukturiertes Inhaltsverzeichnis und trägt nichts zur Usability bei. Sie ist jedoch speziell für Suchmaschinen von hoher Bedeutung.
+Somit können durch eine XML-Sitemap zum Beispiel Unterseiten gefunden werden, welche ansonsten unter Umständen eventuell übersehen werden. Zum Beispiel, wenn eine URL neu ist und auf der Seite nur durch wenige Links darauf verwiesen wird.  Oder wenn eine URL sehr tief innerhalb der Seitenstruktur verschachtelt ist. 
+Sie bietet zwar keine Garantie dafür, dass alle Seiten gecrawlt werden, aber hilft dafür beim Finden neuer und/oder verschachtelter Seiten.
+
+3.2 Vorgehen
+Eine Sitemap lässt sich selbstverständlich manuell erstellen. Dies ist jedoch mit einem großen Aufwand verbunden und erfordert viel Sorgfalt um eine immer aktuelle Sitemap zur Verfügung zu stellen. Da wir Joomla! nutzen, können wir wie schon bei der Integration von Google Analytics auf eine sehr viel einfachere und vor allem zeitsparendere Methode zurückgreifen- mithilfe eines Tools, der “Qlue Sitemap”.
+Die Qlue Sitemap Erweiterung von gleichnamigem Entwickler ist ein simples Tool zur Generierung einer Sitemap, sowohl in HTML- als auch im XML-Format. 
+Wie gewohnt kann die Erweiterung über das Joomla! Backend installiert werden. Anschließend müssen die drei Plugins aktiviert werden: QMap - Content, QMap - Categories und QMap - Menu. 
+Im Komponenten-Menü findet man anschließend den Eintrag Qlue Sitemap. Dort angekommen muss man nur noch eine neuer Sitemap erzeugen mit einem Klick auf Neu und der Angabe eines Titels. Die Erweiterung sammelt automatisch alle freigegebenen Seiten der Joomla! Installation und erstellt die Sitemap.
+Für den Nutzer kann man diese Sitemap nun als neuen Menüpunkt auf der Seite integrieren worunter man die HTML-Version vorfinden wird. Deutlich interessanter für uns war jedoch die XML-Version, die man mit dem Parameter Format XML über die URL aufrufen kann:
+http://lolx.de /sitemap?format=xml
+Diese Version ist speziell für Suchmaschinen wie Google gedacht doch darauf müssen wir Google auch aufmerksam machen. Wer wie wir Zugriff auf Google Webmaster-Tools hat kann dies ganz einfach erledigen. Unter Crawling findet sich der Menüpunkt “Sitemaps”. Zu Beginn fanden wir dort nur eine leere Seite vor. Schnell war klar, dass sich hier was ändern muss. Mit der Vorbereitung via Qlue Sitemap war es ein Kinderspiel. Ein Klick auf Sitemap Hinzufügen/Testen und die Angabe des oben aufgeführten Links ist ausreichend.
+
+Nach Abschluss dieser Aktion finden sich Daten vor, wie sie auf Abbildung XYZ zu sehen sind. Google Webmaster-Tools zeigt uns alle Sitemaps an - in unserem Fall nur eine - und stellt sofort einige Informationen dazu zur Verfügung. Interessant ist hierbei vor allem die Anzahl der eingereichten Verweise bzw. Seiten und der Status Indexiert. Leider braucht auch hier SEO wieder seine Zeit und die Sitemap ist Google nun zwar bekannt gemacht worden, der Google Crawler muss diese aber zuerst noch indexieren. Eine Zeitangabe zum Abschluss des Crawling Vorgangs kann hierbei nicht getroffen werden.
+Mit dem Hinzufügen in Google Webmaster-Tools ist ein erster Schritt getan. Im weiteren Verlauf sollte die Sitemap jedoch auch in der robots.txt bekannt gemacht werden. Diese findet man im Stammverzeichnis der Joomla! Installation. An den Anfang dieser Datei setzt man nun einen Verweis auf die XML-Sitemap:
+sitemap: http://lolx.de/index.php/sitemap?format=xml
+Der Crawler weiß nun bei jedem Besuch wo er die Sitemap finden kann und wird diese (hoffentlich) durchsuchen. Zur Sicherheit sollte man außerdem seine robots.txt testen. Dazu bietet Google ebenfalls eine Funktion im Menübereich Crawling. Die Option robots.txt-Tester überprüft die Datei auf Fehler. Man sollte die Datei außerdem nach Bearbeitung nochmals über den Senden-Button an Google schicken, einige MInuten warten, die Seite neu laden und anschließend manuell überprüfen ob die korrekte robots.txt angezeigt wird.
+
+Wie in Abbildung XYZ zu sehen ist, findet sich der Verweis zur Sitemap nun in der robots.txt und diese enthält weder Fehler noch Warnungen. Damit sollte die Sitemap nun erfolgreich zur Optimierung beitragen und wir können einen Schritt weitergehen.
+
+
+
+
+Meta-Tags
+Meta-Tags enthalten Keywords und sind somit wichtig für Crawler. Sie sind kurz und prägnant, sagen aus worum es auf der Seite geht bzw. welcher Inhalt sich hinter der URL verbirgt.
+Meta-Tags zu setzen ist in Joomla! gar nicht schwer, doch wird immer wieder vergessen. Auch der Administrator von lolx.de war hierbei keineswegs sorgfältig. Ruft man die Konfigurations-Einstellungen der Joomla! Installation auf findet man erste Felder zur Eingabe von Meta-Tags. Wichtig sind hierbei immer der Titel (Name der Website) und die Meta-Beschreibung. Die Meta-Schlüsselwörter sind laut Recherche nur für die Suchmaschine Bing wichtig und erhalten deshalb meist nur wenig Beachtung in der Google dominierten Welt der Suchmaschinen. Auch wir haben im weiteren Verlauf darauf verzichtet.
+Im Falle von lolx.de war nur ein Webseitentitel vergeben. Dieser lautete schlicht "lolx.de". Zwar ist dies der Name der Seite, doch sagt er nichts über den Inhalt aus. Da der Titel jedoch genau dies erreichen sollte, änderten wir ihn kurzer Hand zu "lolx.de Flyff Fanseite und Forum" (Abbildung XYZ). Damit haben wir den Namen "lolx.de", den Bezug zum Thema "Flyff" und die Art der Seite "Fanseite" und "Forum" kurz und prägnant zum Ausdruck gebracht und damit bereits unsere wichtigsten Keywords definiert.
+Ähnlich wichtig ist die Meta-Beschreibung. Viele Webmaster neigen dazu hier möglichst viel anzugeben um auch ja keine Keywords außen vor zu lassen und dem Nutzer keine Informationen vorzuenthalten. Leider ist das der falsche Weg. Empfohlen wird hier ein Text von maximal 165 Zeichen, da Google gar nicht erst weiter ließt. Schreibt man nun also 1000 Zeichen in die Meta-Beschreibung, hat man rein gar nichts davon und auch kaum ein Nutzer wird sich die Mühe machen eine solche Beschreibung vollständig durchzulesen.
+Bei unserer “lolx.de”-Seite war die Beschreibung sehr knapp gehalten - sie enthielt Null Zeichen. Das war natürlich ein fataler Fehler und wurde entsprechend ausgebessert. Folgende Meta-Beschreibung gehört nun zur Fanseite:
+"lolx.de" ist eine Fanseite mit Informationen zum Onlinespiel Fly for Fun: Waffen, Guides uvm. Angemeldete Nutzer können sich zudem im Forum untereinander austauschen. (Abbildung XYZ)
+Die Beschreibung ist wie eine etwas längere Version des Titels. Der Name "lolx.de", der Bezug "Onlinespiel", "Fly for Fun", die Art "Fanseite", "Forum" und was dies entsprechend aussagt "Informationen" (z.B. "Waffen", "Guides", ...) und "untereinander austauschen". Diese Informationen zeigen den Crawlern kurz und knapp worum es auf unserer Seite geht. Außerdem wird diese Beschreibung in den Google Ergebnissen unter den Suchergebnissen angezeigt. Sie gibt also auch den potentiellen Besuchern einen schnellen Überblick. Dies kann ausschlaggebend sein ob ein Nutzer das Ergebnis wirklich anklickt oder lieber ein anderes auswählt.
+
+Damit ist schon mal ein großer Schritt getan, doch Joomla! bietet nicht nur die soeben aufgeführten globalen Meta-Tags, sondern auch jeder einzelne Beitrag enthält an der rechten Seite die Eingabefelder für Meta-Daten. Wer sorgfältig arbeitet trägt bei Erstellung eines neuen Beitrags auch eine entsprechende Meta-Beschreibung ein. Wer dies bisher nicht getan hat, naja, dem wünschen wir so viel Spaß wie wir hatten beim nachträglichen Eintragen auf über 100 Seiten.
+
+
+Suchmaschinenfreundliche URLs
+Die URLs von dynamisch generierten Webseiten, wie sie auch von Content Management Systemen wie Joomla! gemacht werden, sind meist nicht aussagekräftigt und werden falsch oder gar nicht von Crawlern interpretiert. URLs die wir Menschen besser verstehen, sehen auch die Crawler lieber. Suchmaschinenfreundliche URLs enthalten üblicherweise direkt Keywords.
+Auch für Suchmaschinenfreundliche URLs bietet Joomla! von Haus aus eine Funktion an. Diese findet sich ebenfalls bei den Seiteneinstellungen direkt rechts neben den Eingabefeldern zu Webseitentitel etc..
+
+Die erste Option, zu sehen in Abbildung XYZ, sollte in jedem Fall auf Ja gesetzt werden. Diese sorgt dafür, dass die Parameter in den URLs quasi verschwinden. In Wirklichkeit werden die Suchmaschinenfreundlichen URLs vom Server interpretiert und entsprechend wieder auf die ursprüngliche Form umgeschrieben um sie den Scripten zur Weiterverarbeitung zur Verfügung zu stellen. Eine "echte" URL sieht z.B. so aus:
+%http://lolx.de/index.php?option=com_content&view=article&id=5&Itemid=142
+Wer weiß anhand dieser URL auf was für Inhalte er gerade zugreift? Niemand. Auch ein Crawler weiß damit nicht viel anzufangen. Eine umgeschriebene URL würde folgendermaßen aussehen:
+http://lolx.de/index.php/home/geschichte
+Damit lässt sich nun bereits an der URL erkennen was man gerade für Inhalte vor sich hat. Beide URLs verweisen übrigens auf genau den gleichen Inhalt - auf die Geschichte, welche scheinbar ein Artikel ist und die ID 142 zugewiesen bekommen hat.
+Aktiviert man auch die zweite Option, wird die URL nochmals leserlicher:
+http://lolx.de/home/geschichte
+Diese Funktion zeigt jedoch nur Wirkung, wenn eine korrekte htacces-Datei auf dem Server (Apache) hinterlegt wurde. Glücklicherweise stellt Joomla! diese ebenfalls bereits zur Verfügung und sie muss nur noch richtig auf dem Webserver gespeichert werden. Dazu mussten wir die htaccess.txt in .htaccess umbennen. Kurz erklärt: Die htaccess-Datei enthält Umschreib-Bedingungen (RewriteCond), die gelten müssen und Umschreib-Regeln (RewriteRule), die dann ausgeführt werden. Die Joomla! htaccess-Datei beschreibt hierbei mehrere Bedingungen wie z.B. das Ausschließen, dass es sich bei der angegebenen URL um ein physikalisch existierendes Verzeichnis handelt...
+RewriteCond %{REQUEST_FILENAME} !-d
+...und leitet die Anfrage somit auf die index.php mit folgender Regel um:
+RewriteRule .* index.php [L]
+Wie unschwer zu erkennen ist, ist dieses URL-Rewriting eigenhändig gar nicht so einfach. Es wird hierbei eine für den Laien völlig unverständliche Syntax genutzt und Fehler können erheblichen Schaden anrichten, da ganze Seiteninhalte unter Umständen nicht mehr aufgerufen werden können.
+Eine genauere Erklärung der aufgestellten Bedingungen und Regeln würde den Rahmen der Ausarbeitung sprengen, weshalb wir an dieser Stelle nur sagen können: ein Glück stellt Joomla! bereits die wichtigen Daten und Funktionen zur Verfügung. Man muss diese eben nur auch nutzen bzw. erst mal aktivieren. Macht man dies, erhält man gute Suchmaschinenfreundliche URLs, die dazu beitragen können die Seite ein Stück weiter nach oben in der Ergebnisliste der Suchanfrage zu bringen. Zudem sind sie deutlich aussagekräftiger für Seitenbesucher.
+%
+
+PageRank
+Einer der wichtigsten Faktoren der Suchmaschinen Optimierung ist der PageRank, der daran festgemacht wird wie oft auf eine Seite verlinkt wird und wer auf diese Seite verlinkt. Einen Teil zur Verbesserung des PageRanks wurde bereits in der Vergangenheit getan, obwohl zu diesem Zeitpunkt der Administrator von "lolx.de" noch nicht mal wusste was dieser PageRank zu bedeuten hat.
+Durch Soziale Netzwerke wie Twitter, Facebook und die Videoplattform YouTube wurden viele Links über die Zeit vertrieben, die Nutzer auf die Seite locken sollten. So findet sich zum Beispiel unter jedem YouTube-Video des Betreibers und der Mitwirkenden ein Link zur Fanseite. Im Forum veröffentlichte Newsbeträge wurden zudem auf Twitter angekündigt und dort mit einem Link zu entsprechendem Forenthread versehen.
+Ebenfalls wichtig war der Link auf der offiziellen Webseiten zum Onlinespiel Flyff, der sich damals verdient wurde durch die Teilnahme am Fanseiten-Projekt. Leider wurde dieser Link mit der Übernahme des Spieleportals gPotato.eu durch WEBZEN Inc. entfernt. Wir fragten erneut bei den Verantwortlichen an. Diese bestätigten uns zwar noch immer den Status als offizielle Fanseite, konnten uns jedoch keine erneute Verlinkung versprechen und antworteten ernüchternd mit "(...) ich kann mal bei meinem Chef anfragen, aber kann für nichts garantieren." - Magitook[CM], WEBZEN Inc. Mitarbeiter, Community Manager für Flyff Deutschland. Schade!
+Als weitere gute Anlaufstelle für Verweise auf die eigene Seite gilt das Open Directory Projekt (ODP) dmoz.com. Dieses stellt seine Daten außerdem bekannten Suchanbietern zur Verfügung. Die Registrierung der eigenen Domain ist zudem denkbar einfach - leider verlangt es aber viel Geduld. DMOZ selbst sagt dazu, dass eine Anmeldung ausgiebig geprüft wird und dieser Vorgang "mehrere Wochen oder noch länger" dauern kann. Sollte die Seite eingetragen werden, kann die Aktualisierung der ODP-Daten der Suchanbieter nochmals mehrere Wochen dauern. Die Anbieter haben hierbei eigene, unterschiedliche Aktualisierungszyklen.
+Da wir den Punkt PageRank erst gegen Ende der Seminarphase in Augenschein genommen haben. Konnten wir diesbezüglich keine Erfahrungen zu DMOZ sammeln, ziehen eine Anmeldung jedoch über das Seminar hinausgehend in Betracht um lolx.de weiterhin in den Suchergebnissen nach oben zu treiben.
+
+
+
+Keywords
